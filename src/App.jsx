@@ -1,5 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";   // ✅ ADD THIS
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -9,10 +10,11 @@ import Contact from "./pages/CONTACAT";
 import Complaint from "./pages/Complaint";
 
 function App() {
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []); 
+  }, [location.pathname]);
 
   return (
     <div className="bg-gray-50 text-gray-800">

@@ -43,15 +43,14 @@ function Reviews() {
     },
   ];
 
-  // Responsive visible cards
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setVisibleCards(1); // mobile
+        setVisibleCards(1);
       } else if (window.innerWidth < 1024) {
-        setVisibleCards(2); // tablet
+        setVisibleCards(2);
       } else {
-        setVisibleCards(3); // desktop
+        setVisibleCards(3);
       }
     };
 
@@ -71,8 +70,8 @@ function Reviews() {
   }, [reviews.length, visibleCards]);
 
   return (
-    <section className="py-20 md:py-28 bg-white text-center overflow-hidden">
-      <h2 className="text-3xl md:text-5xl font-extrabold mb-12 md:mb-16 tracking-tight">
+    <section className="py-16 sm:py-20 md:py-28 bg-white text-center overflow-hidden">
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-10 sm:mb-12 md:mb-16 tracking-tight px-4">
         Trusted by Traders
       </h2>
 
@@ -86,14 +85,14 @@ function Reviews() {
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="shrink-0 px-4"
+              className="shrink-0 px-3 sm:px-4"
               style={{ width: `${100 / visibleCards}%` }}
             >
               <div
                 className="bg-linear-to-br from-green-50 to-green-200
                            rounded-2xl shadow-lg
-                           min-h-80
-                           p-6 md:p-8
+                           min-h-65 sm:min-h-75
+                           p-5 sm:p-6 md:p-8
                            border border-green-200
                            hover:border-green-600
                            flex flex-col items-center justify-center
@@ -102,22 +101,22 @@ function Reviews() {
                 <img
                   src={review.image}
                   alt={review.name}
-                  className="w-14 h-14 md:w-16 md:h-16 rounded-full mb-4 border-4 border-white shadow-md"
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-4 border-4 border-white shadow-md"
                 />
 
-                <h4 className="text-lg md:text-xl font-bold text-gray-800">
+                <h4 className="text-base sm:text-lg md:text-xl font-bold text-gray-800">
                   {review.name}
                 </h4>
 
-                <p className="text-green-700 text-sm font-medium mb-3">
+                <p className="text-green-700 text-xs sm:text-sm font-medium mb-3">
                   {review.role}
                 </p>
 
-                <div className="text-yellow-400 mb-4 text-sm">
+                <div className="text-yellow-400 mb-4 text-xs sm:text-sm">
                   ★★★★★
                 </div>
 
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                   {review.text}
                 </p>
               </div>
